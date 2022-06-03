@@ -17,9 +17,9 @@ This project uses `node@15.14.0`, `npm@7.7.6`.
 ### Next, run the development server:
 
 ```bash
+npm ci
+# then
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
