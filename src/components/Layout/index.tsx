@@ -2,10 +2,10 @@ import {
   StyledEngineProvider,
   ThemeProvider,
   CssBaseline,
-  Container,
 } from "@mui/material";
 
 import theme from "../../app/theme";
+import * as Styled from "./styles";
 
 interface Props {
   children: React.ReactNode;
@@ -15,7 +15,7 @@ const Layout = ({ children }: Props) => (
   <StyledEngineProvider injectFirst>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container>{children}</Container>
+      <Styled.Layout>{children}</Styled.Layout>
     </ThemeProvider>
   </StyledEngineProvider>
 );
