@@ -16,7 +16,7 @@ const AllCountries: NextPage<NextPage> = () => {
   const [loading, setLoading] = useState(true);
 
   const url =
-    "https://restcountries.com/v2/all?fields=name,flag,population,capital";
+    "https://restcountries.com/v2/all?fields=name,flag,population,capital,alpha2Code";
 
   if (countries.length === 0) {
     axios
@@ -46,7 +46,7 @@ const AllCountries: NextPage<NextPage> = () => {
             population={country.population}
             flag={country.flag}
             capital={country.capital}
-            onClick={() => router.push(`/${Case.kebab(country.name)}`)}
+            onClick={() => router.push(`/${Case.lower(country.alpha2Code)}`)}
           />
         ))}
     </Layout>
