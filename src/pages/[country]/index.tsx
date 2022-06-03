@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { Typography } from "@mui/material";
 
-import Layout from "../../components/Layout/Layout";
+import Layout from "../../components/Layout";
 
 const Country: NextPage<NextPage> = () => {
   const router = useRouter();
