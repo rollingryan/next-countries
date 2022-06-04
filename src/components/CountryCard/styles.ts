@@ -4,8 +4,6 @@ import {
   CardMedia as MuiCardMedia,
   CardActionArea as MuiCardActionArea,
   CardContent as MuiCardContent,
-  Typography as MuiTypography,
-  TypographyProps,
   CardContentProps,
   CardActionAreaProps,
   CardMediaProps,
@@ -38,7 +36,7 @@ export const CardMedia = styled(MuiCardMedia)<CardMediaProps>`
     height: 100%;
     background: linear-gradient(
       90deg,
-      rgba(30, 30, 30, 0.3) 0%,
+      rgba(30, 30, 30, 0) 0%,
       rgba(30, 30, 30, 1) 100%
     );
   }

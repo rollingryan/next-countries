@@ -16,11 +16,11 @@ const AllCountries: NextPage<NextPage> = () => {
 
   return (
     (isLoading && <FullScreenLoader />) ||
-    (error && <Error error={error}></Error>) || (
+    (error && <Error error={error} />) || (
       <Styled.CountriesWrap>
         {data?.map((country: any) => (
           <CountryCard
-            key={Case.kebab(country.name)}
+            key={country.alpha2Code}
             name={country.name}
             population={country.population}
             flag={country.flag}

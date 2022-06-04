@@ -26,8 +26,10 @@ const Country: NextPage<NextPage> = () => {
   const url = `https://restcountries.com/v2/alpha/${countryCode}?fields=name,flag,population,capital,currencies,languages,borders`;
   const { data, error, isLoading } = useApiRequest(url);
 
+  console.log(data);
+
   const {
-    name = "Name unknown",
+    name = "Unknown",
     flag = "",
     population,
     capital = "Unknown",
@@ -40,7 +42,7 @@ const Country: NextPage<NextPage> = () => {
 
   return (
     (isLoading && <FullScreenLoader />) ||
-    (error && <Error error={error}></Error>) ||
+    (error && <Error error={error} />) ||
     (data && (
       <>
         <Styled.CountryWrapper>
@@ -59,11 +61,12 @@ const Country: NextPage<NextPage> = () => {
               {name}
             </Typography>
             <Typography>
-              <span style={{ color: `${grey}` }}>Capital:</span> {capital}
+              <span style={{ color: `${grey}` }}>Capital: </span>
+              {capital || "Unknown"}
             </Typography>
             <Typography>
-              <span style={{ color: `${grey}` }}>Population:</span>{" "}
-              {population.toLocaleString("en-US") || "Unknown"}
+              <span style={{ color: `${grey}` }}>Population: </span>
+              {population.toLocaleString("en-US")}
             </Typography>
 
             <Typography>

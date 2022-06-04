@@ -9,12 +9,12 @@ import {
 import theme, { breakpoints } from "../app/theme";
 
 export const Layout = styled(Container)<ContainerProps>`
-  height: 100vh;
+  height: 100%;
   text-align: center;
 `;
 
 export const Header = styled.div`
-  margin-bottom: ${theme.spacing(4)};
+  margin-bottom: 2rem;
 `;
 
 export const Logo = styled(Typography)<TypographyProps>`

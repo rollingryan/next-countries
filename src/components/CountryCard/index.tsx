@@ -8,15 +8,17 @@ interface CountryCardProps {
   population?: number;
   flag?: string;
   capital?: string;
-  onClick: () => void;
+  onClick?: () => void;
+  className?: string;
 }
 
 const CountryCard: React.FC<CountryCardProps> = ({
   name = "Unknown",
-  population,
+  population = "0",
   flag = "",
   capital = "Unknown",
   onClick,
+  className = "",
 }) => {
   const getTrimmedName = (name: string, length: number) =>
     name.length > length ? name.substring(0, length) + "..." : name;
@@ -24,7 +26,7 @@ const CountryCard: React.FC<CountryCardProps> = ({
   const grey = theme.palette.text.disabled;
 
   return (
-    <Styled.Card>
+    <Styled.Card className={className}>
       <Styled.CardActionArea onClick={onClick}>
         <Styled.CardMedia image={flag} />
         <Styled.CardContent>
@@ -32,12 +34,12 @@ const CountryCard: React.FC<CountryCardProps> = ({
             {getTrimmedName(name, 14)}
           </Typography>
           <Typography variant="subtitle2">
-            <span style={{ color: `${grey}` }}>Capital: </span>{" "}
+            <span style={{ color: `${grey}` }}>Capital: </span>
             {getTrimmedName(capital, 13)}
           </Typography>
           <Typography variant="subtitle2">
             <span style={{ color: `${grey}` }}>Population: </span>
-            {population?.toLocaleString("en-US") || "Unknown"}
+            {population?.toLocaleString("en-US")}
           </Typography>
         </Styled.CardContent>
       </Styled.CardActionArea>
