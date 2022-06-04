@@ -6,7 +6,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - Typescript
 - [Material UI](https://mui.com/material-ui/getting-started/installation/) for the components library
 - [Emotion](https://emotion.sh/docs/styled) for the styling (what styled-components uses under the hood)
-- [Node Fetch](https://github.com/node-fetch/node-fetch) for the API calls
+- [Axios](https://axios-http.com/) for the API calls
 
 ## Getting Started
 
