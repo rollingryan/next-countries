@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { ContainerProps } from "@mui/material";
 
-import { Layout } from "../../pageStyles/styles";
+import { Layout } from "../../pageStyles/appStyles";
 
 export const LoaderLayout = styled(Layout)<ContainerProps>`
   display: flex;

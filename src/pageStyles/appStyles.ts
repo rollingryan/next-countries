@@ -43,18 +43,30 @@ export const Logo = styled(Typography)<TypographyProps>`
     &--first {
       right: -0.25rem;
       font-weight: 900;
-      clip-path: polygon(26% 0, 100% 0, 82% 100%, 0% 100%);
+      clip-path: polygon(20% 0, 100% 0, 80% 100%, 0% 100%);
       color: ${theme.palette.text.disabled};
 
-      @media screen and (min-width: ${breakpoints.md}px) {
+      @media screen and (min-width: ${breakpoints.sm}px) {
         right: -0.5rem;
+      }
+
+      @media screen and (min-width: ${breakpoints.md}px) {
+        right: -0.75rem;
       }
     }
 
     &--second {
       left: -0.25rem;
       font-weight: 100;
-      clip-path: polygon(7% 0, 100% 0, 93% 100%, 0% 100%);
+      clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+
+      @media screen and (min-width: ${breakpoints.sm}px) {
+        left: -0.5rem;
+      }
+
+      @media screen and (min-width: ${breakpoints.md}px) {
+        left: -0.75rem;
+      }
 
       &::before {
         content: "";
@@ -78,10 +90,6 @@ export const Logo = styled(Typography)<TypographyProps>`
         @media screen and (min-width: ${breakpoints.md}px) {
           width: 2rem;
         }
-      }
-
-      @media screen and (min-width: ${breakpoints.md}px) {
-        left: -0.5rem;
       }
     }
   }

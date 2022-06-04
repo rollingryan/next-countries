@@ -6,6 +6,7 @@ import FullScreenLoader from "../components/Loader";
 import Error from "../components/Error";
 import CountryCard from "../components/CountryCard";
 import useApiRequest from "../app/hooks/useApiRequest";
+import * as Styled from "../pageStyles/countriesStyles";
 
 const AllCountries: NextPage<NextPage> = () => {
   const router = useRouter();
@@ -15,17 +16,20 @@ const AllCountries: NextPage<NextPage> = () => {
 
   return (
     (isLoading && <FullScreenLoader />) ||
-    (error && <Error error={error}></Error>) ||
-    data?.map((country: any) => (
-      <CountryCard
-        key={Case.kebab(country.name)}
-        name={country.name}
-        population={country.population}
-        flag={country.flag}
-        capital={country.capital}
-        onClick={() => router.push(`/${Case.lower(country.alpha2Code)}`)}
-      />
-    ))
+    (error && <Error error={error}></Error>) || (
+      <Styled.CountriesWrap>
+        {data?.map((country: any) => (
+          <CountryCard
+            key={Case.kebab(country.name)}
+            name={country.name}
+            population={country.population}
+            flag={country.flag}
+            capital={country.capital}
+            onClick={() => router.push(`/${Case.lower(country.alpha2Code)}`)}
+          />
+        ))}
+      </Styled.CountriesWrap>
+    )
   );
 };
 
