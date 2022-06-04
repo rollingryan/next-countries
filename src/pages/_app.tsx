@@ -34,6 +34,7 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
                   onClick={() => router.back()}
                   startIcon={<ArrowBackIcon />}
                   size="small"
+                  variant="outlined"
                 >
                   Back
                 </Button>
