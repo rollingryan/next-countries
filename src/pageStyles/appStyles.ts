@@ -19,7 +19,7 @@ export const Header = styled.div`
 
 export const Logo = styled(Typography)<TypographyProps>`
   text-transform: lowercase;
-  font-size: 3rem;
+  font-size: 3.25rem;
 
   @media screen and (min-width: ${breakpoints.sm}px) {
     font-size: 4rem;
@@ -41,7 +41,7 @@ export const Logo = styled(Typography)<TypographyProps>`
     }
 
     &--first {
-      right: -0.25rem;
+      right: -0.35rem;
       font-weight: 900;
       clip-path: polygon(20% 0, 100% 0, 80% 100%, 0% 100%);
       color: ${theme.palette.text.disabled};
@@ -56,7 +56,7 @@ export const Logo = styled(Typography)<TypographyProps>`
     }
 
     &--second {
-      left: -0.25rem;
+      left: -0.35rem;
       font-weight: 100;
       clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
 
