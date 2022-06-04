@@ -27,6 +27,7 @@ const CountryLayout: React.FC<Props> = ({ country }) => (
         alt={country.name}
         layout="fill"
         objectFit="cover"
+        priority
       />
     </Styled.NextImage>
 
