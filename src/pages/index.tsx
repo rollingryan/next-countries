@@ -2,7 +2,6 @@ import Case from "case";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 
-import Layout from "../components/Layout";
 import FullScreenLoader from "../components/Loader";
 import Error from "../components/Error";
 import CountryCard from "../components/CountryCard";
@@ -15,20 +14,18 @@ const AllCountries: NextPage<NextPage> = () => {
   const { data, error, isLoading } = useApiRequest(url);
 
   return (
-    <Layout>
-      {(isLoading && <FullScreenLoader />) ||
-        (error && <Error error={error}></Error>) ||
-        data?.map((country: any) => (
-          <CountryCard
-            key={Case.kebab(country.name)}
-            name={country.name}
-            population={country.population}
-            flag={country.flag}
-            capital={country.capital}
-            onClick={() => router.push(`/${Case.lower(country.alpha2Code)}`)}
-          />
-        ))}
-    </Layout>
+    (isLoading && <FullScreenLoader />) ||
+    (error && <Error error={error}></Error>) ||
+    data?.map((country: any) => (
+      <CountryCard
+        key={Case.kebab(country.name)}
+        name={country.name}
+        population={country.population}
+        flag={country.flag}
+        capital={country.capital}
+        onClick={() => router.push(`/${Case.lower(country.alpha2Code)}`)}
+      />
+    ))
   );
 };
 
