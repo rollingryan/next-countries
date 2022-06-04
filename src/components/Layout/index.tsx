@@ -2,6 +2,7 @@ import {
   StyledEngineProvider,
   ThemeProvider,
   CssBaseline,
+  Typography,
 } from "@mui/material";
 
 import theme from "../../app/theme";
@@ -15,7 +16,10 @@ const Layout = ({ children }: Props) => (
   <StyledEngineProvider injectFirst>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Styled.Layout>{children}</Styled.Layout>
+      <Styled.Layout>
+        <Typography variant="h3">Countries App</Typography>
+        {children}
+      </Styled.Layout>
     </ThemeProvider>
   </StyledEngineProvider>
 );
