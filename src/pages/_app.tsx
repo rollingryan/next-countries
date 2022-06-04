@@ -7,7 +7,7 @@ import { Button, CssBaseline } from "@mui/material";
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 
 import theme from "../app/theme";
-import * as Styled from "../pageStyles/styles";
+import * as Styled from "../pageStyles/appStyles";
 
 const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
   const router = useRouter();

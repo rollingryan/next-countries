@@ -1,32 +1,44 @@
-import { Card, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
-import Styled from "./styles";
+import * as Styled from "./styles";
+import theme from "../../app/theme";
 
 interface CountryCardProps {
   name: string;
-  population: number;
-  flag: string;
-  capital: string;
+  population?: number;
+  flag?: string;
+  capital?: string;
   onClick: () => void;
 }
 
-const MenuItemCard: React.FC<CountryCardProps> = ({
+const CountryCard: React.FC<CountryCardProps> = ({
   name,
-  population,
-  flag,
-  capital,
+  population = 0,
+  flag = "",
+  capital = "",
   onClick,
-}) => (
-  <Card>
-    <Styled.CardActionArea onClick={onClick}>
-      <Styled.CardMedia image={flag} />
-      <Styled.CardContent>
-        <Typography variant="h4">Name: {name}</Typography>
-        <Typography>Capital City: {capital}</Typography>
-        <Typography>Population: {population}</Typography>
-      </Styled.CardContent>
-    </Styled.CardActionArea>
-  </Card>
-);
+}) => {
+  const getTrimmedName = (name: string, length: number) =>
+    name.length > length ? name.substring(0, length) + "..." : name;
 
-export default MenuItemCard;
+  return (
+    <Styled.Card>
+      <Styled.CardActionArea onClick={onClick}>
+        <Styled.CardMedia image={flag || ""} />
+        <Styled.CardContent>
+          <Typography variant="h5" gutterBottom>
+            {getTrimmedName(name, 14) || ""}
+          </Typography>
+          <Typography color={theme.palette.text.disabled}>
+            Capital: {getTrimmedName(capital, 13) || "Unknown"}
+          </Typography>
+          <Typography color={theme.palette.text.disabled} variant="subtitle2">
+            Population: {population.toLocaleString("en-US") || "Unknown"}
+          </Typography>
+        </Styled.CardContent>
+      </Styled.CardActionArea>
+    </Styled.Card>
+  );
+};
+
+export default CountryCard;

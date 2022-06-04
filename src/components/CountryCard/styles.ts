@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import {
+  Card as MuiCard,
   CardMedia as MuiCardMedia,
   CardActionArea as MuiCardActionArea,
   CardContent as MuiCardContent,
@@ -8,34 +9,43 @@ import {
   CardContentProps,
   CardActionAreaProps,
   CardMediaProps,
+  CardProps,
 } from "@mui/material";
 
-const CardActionArea = styled(MuiCardActionArea)<CardActionAreaProps>`
+export const Card = styled(MuiCard)<CardProps>`
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+`;
+
+export const CardActionArea = styled(MuiCardActionArea)<CardActionAreaProps>`
   display: flex;
   flex-flow: row nowrap;
   align-items: stretch;
   justify-content: space-between;
+  text-align: left;
 `;
 
-const CardContent = styled(MuiCardContent)<CardContentProps>`
+export const CardMedia = styled(MuiCardMedia)<CardMediaProps>`
+  position: relative;
+  width: 35%;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(30, 30, 30, 0.3) 0%,
+      rgba(30, 30, 30, 1) 100%
+    );
+  }
+`;
+
+export const CardContent = styled(MuiCardContent)<CardContentProps>`
   display: flex;
   flex-flow: column nowrap;
-  width: 75%;
+  width: 65%;
+  padding-left: 0.5rem;
 `;
-
-const Price = styled(MuiTypography)<TypographyProps>`
-  font-weight: 700;
-`;
-
-const CardMedia = styled(MuiCardMedia)<CardMediaProps>`
-  width: 25%;
-`;
-
-const Styled = {
-  CardContent,
-  CardMedia,
-  CardActionArea,
-  Price,
-};
-
-export default Styled;
