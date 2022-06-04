@@ -4,7 +4,7 @@ import * as Styled from "./styles";
 import theme from "../../app/theme";
 
 interface CountryCardProps {
-  name: string;
+  name?: string;
   population?: number;
   flag?: string;
   capital?: string;
@@ -12,28 +12,32 @@ interface CountryCardProps {
 }
 
 const CountryCard: React.FC<CountryCardProps> = ({
-  name,
-  population = 0,
+  name = "Unknown",
+  population,
   flag = "",
-  capital = "",
+  capital = "Unknown",
   onClick,
 }) => {
   const getTrimmedName = (name: string, length: number) =>
     name.length > length ? name.substring(0, length) + "..." : name;
 
+  const grey = theme.palette.text.disabled;
+
   return (
     <Styled.Card>
       <Styled.CardActionArea onClick={onClick}>
-        <Styled.CardMedia image={flag || ""} />
+        <Styled.CardMedia image={flag} />
         <Styled.CardContent>
           <Typography variant="h5" gutterBottom>
-            {getTrimmedName(name, 14) || ""}
+            {getTrimmedName(name, 14)}
           </Typography>
-          <Typography color={theme.palette.text.disabled}>
-            Capital: {getTrimmedName(capital, 13) || "Unknown"}
+          <Typography variant="subtitle2">
+            <span style={{ color: `${grey}` }}>Capital: </span>{" "}
+            {getTrimmedName(capital, 13)}
           </Typography>
-          <Typography color={theme.palette.text.disabled} variant="subtitle2">
-            Population: {population.toLocaleString("en-US") || "Unknown"}
+          <Typography variant="subtitle2">
+            <span style={{ color: `${grey}` }}>Population: </span>
+            {population?.toLocaleString("en-US") || "Unknown"}
           </Typography>
         </Styled.CardContent>
       </Styled.CardActionArea>

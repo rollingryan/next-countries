@@ -6,13 +6,13 @@ import { breakpoints } from "../app/theme";
 export const CountriesWrap = styled(Container)<ContainerProps>`
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 2rem;
+  grid-gap: 1.5rem;
 
-  @media screen and (min-width: ${breakpoints.md}px) {
+  @media screen and (min-width: ${breakpoints.sm}px) {
     grid-template-columns: 1fr 1fr;
   }
 
-  @media screen and (min-width: ${breakpoints.lg}px) {
+  @media screen and (min-width: ${breakpoints.md}px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 `;

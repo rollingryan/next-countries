@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 
 export const Card = styled(MuiCard)<CardProps>`
+  border-radius: 0;
   clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
 `;
 
@@ -47,5 +48,5 @@ export const CardContent = styled(MuiCardContent)<CardContentProps>`
   display: flex;
   flex-flow: column nowrap;
   width: 65%;
-  padding-left: 0.5rem;
+  padding-left: 0.75rem;
 `;
