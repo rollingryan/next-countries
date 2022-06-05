@@ -8,11 +8,11 @@ export const CountriesWrap = styled(Container)<ContainerProps>`
   grid-template-columns: 1fr;
   grid-gap: 1.5rem;
 
-  @media screen and (min-width: ${breakpoints.sm}px) {
+  @media screen and (min-width: ${breakpoints.md}px) {
     grid-template-columns: 1fr 1fr;
   }
 
-  @media screen and (min-width: ${breakpoints.md}px) {
+  @media screen and (min-width: ${breakpoints.lg}px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 `;

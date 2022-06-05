@@ -46,7 +46,7 @@ const CountryCard: React.FC<CountryCardProps> = ({
             data-testid="country-card__name"
             data-cy="country-card__name"
           >
-            {trimString(name, 14)}
+            {trimString(name, 13)}
           </Typography>
           <Typography
             variant="subtitle2"
