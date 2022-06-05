@@ -1,4 +1,5 @@
 import Case from "case";
+import { memo } from "react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 
@@ -32,4 +33,4 @@ const AllCountries: NextPage<NextPage> = () => {
   );
 };
 
-export default AllCountries;
+export default memo(AllCountries);
