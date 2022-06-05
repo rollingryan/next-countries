@@ -29,4 +29,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ```bash
 npm run test
 npm run test:watch
+npm run cypress:open # coming soon
 ```

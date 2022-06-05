@@ -18,12 +18,14 @@
     "@reduxjs/toolkit": "1.8.2",
     "case": "1.6.3",
     "next": "12.1.6",
+    "npm-install": "1.8.13",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-redux": "8.0.2"
   },
   "devDependencies": {
     "@babel/core": "7.18.2",
+    "@babel/preset-env": "7.18.2",
     "@babel/preset-typescript": "7.17.12",
     "@testing-library/dom": "8.13.0",
     "@testing-library/jest-dom": "5.16.4",
