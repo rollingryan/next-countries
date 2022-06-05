@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { Typography } from "@mui/material";
@@ -10,7 +11,7 @@ import * as Styled from "../pageStyles/countryStyles";
 import BorderCountries from "../components/BorderCountries";
 import theme from "../app/theme";
 
-interface Country {
+interface CountryProps {
   name?: string;
   flag?: string;
   population: number;
@@ -20,36 +21,41 @@ interface Country {
   borders?: string[];
 }
 
-const Country: NextPage<NextPage> = () => {
+const initCountry: CountryProps = {
+  name: "Unknown",
+  flag: "",
+  population: 0,
+  capital: "Unknown",
+  currencies: [],
+  languages: [],
+  borders: [],
+};
+
+const Country: NextPage = () => {
   const router = useRouter();
   const countryCode = router.query.country;
   const url = `https://restcountries.com/v2/alpha/${countryCode}?fields=name,flag,population,capital,currencies,languages,borders`;
   const { data, error, isLoading } = useApiRequest(url);
+  const [country, setCountry] = useState(initCountry);
 
-  console.log(data);
-
-  const {
-    name = "Unknown",
-    flag = "",
-    population,
-    capital = "Unknown",
-    currencies = [],
-    languages = [],
-    borders = [],
-  }: Country = data;
+  useEffect(() => {
+    if (data) {
+      setCountry(data);
+    }
+  }, [data]);
 
   const grey = theme.palette.text.disabled;
 
   return (
     (isLoading && <FullScreenLoader />) ||
-    (error && <Error error={error} />) ||
-    (data && (
+    (error && !data && <Error error={error} />) ||
+    (data && !isLoading && (
       <>
         <Styled.CountryWrapper>
           <Styled.NextImage>
             <Image
-              src={flag}
-              alt={name}
+              src={country?.flag || "https://via.placeholder.com/400x200"}
+              alt={country.name}
               layout="fill"
               objectFit="cover"
               priority
@@ -58,29 +64,29 @@ const Country: NextPage<NextPage> = () => {
 
           <Styled.CountryInfo elevation={0}>
             <Typography variant="h4" gutterBottom>
-              {name}
+              {country.name}
             </Typography>
             <Typography>
               <span style={{ color: `${grey}` }}>Capital: </span>
-              {capital || "Unknown"}
+              {country.capital}
             </Typography>
             <Typography>
               <span style={{ color: `${grey}` }}>Population: </span>
-              {population.toLocaleString("en-US")}
+              {country.population?.toLocaleString("en-US")}
             </Typography>
 
             <Typography>
               <span style={{ color: `${grey}` }}>Currencies: </span>
-              {currencies.map((currency: any) => currency.name)}
+              {country.currencies?.map((currency: any) => currency.name)}
             </Typography>
 
             <Typography>
-              <span style={{ color: `${grey}` }}>Currencies: </span>
-              {languages.map((language: any) => language.name)}
+              <span style={{ color: `${grey}` }}>Languages: </span>
+              {country.languages?.map((language: any) => language.name)}
             </Typography>
           </Styled.CountryInfo>
         </Styled.CountryWrapper>
-        <BorderCountries borders={borders} />
+        <BorderCountries borders={country.borders || []} />
       </>
     ))
   );

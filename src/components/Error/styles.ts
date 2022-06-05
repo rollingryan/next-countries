@@ -7,4 +7,5 @@ export const ErrorLayout = styled(LoaderLayout)<ContainerProps>``;
 
 export const Alert = styled(MuiAlert)<AlertProps>`
   width: 80vw;
+  text-align: left;
 `;

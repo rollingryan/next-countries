@@ -24,8 +24,8 @@ const BorderCountries: React.FC<Props> = ({ borders }) => {
           <span className="heading--second">Countries</span>
         </Styled.Heading>
 
-        <Styled.BordersWrap elevation={0}>
-          {error && (
+        <Styled.BordersWrap elevation={(error && !data.length && 1) || 0}>
+          {error && !data.length && (
             <Typography sx={{ padding: "1rem" }} variant="h6">
               This country is an island &#127965;&#65039;
             </Typography>
