@@ -7,7 +7,10 @@ interface Props {
 }
 
 const Loader: React.FC<Props> = ({ contained = false }) => (
-  <Styled.LoaderLayout className={contained ? "contained" : ""}>
+  <Styled.LoaderLayout
+    className={contained ? "contained" : ""}
+    data-testid="loader"
+  >
     <CircularProgress />
   </Styled.LoaderLayout>
 );
