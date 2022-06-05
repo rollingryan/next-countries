@@ -9,7 +9,11 @@ import {
 import theme, { breakpoints } from "../app/theme";
 
 export const Layout = styled(Container)<ContainerProps>`
-  height: 100%;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   text-align: center;
 `;
 

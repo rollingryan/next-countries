@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 
 import * as Styled from "./styles";
 import theme from "../../app/theme";
+import trimString from "../../app/utils/trimString";
 
 interface CountryCardProps {
   name?: string;
@@ -20,9 +21,6 @@ const CountryCard: React.FC<CountryCardProps> = ({
   onClick,
   className = "",
 }) => {
-  const getTrimmedName = (name: string, length: number) =>
-    name.length > length ? name.substring(0, length) + "..." : name;
-
   const grey = theme.palette.text.disabled;
 
   return (
@@ -31,11 +29,11 @@ const CountryCard: React.FC<CountryCardProps> = ({
         <Styled.CardMedia image={flag} />
         <Styled.CardContent>
           <Typography variant="h5" gutterBottom>
-            {getTrimmedName(name, 14)}
+            {trimString(name, 14)}
           </Typography>
           <Typography variant="subtitle2">
             <span style={{ color: `${grey}` }}>Capital: </span>
-            {getTrimmedName(capital, 13)}
+            {trimString(capital, 13)}
           </Typography>
           <Typography variant="subtitle2">
             <span style={{ color: `${grey}` }}>Population: </span>

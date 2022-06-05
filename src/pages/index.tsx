@@ -2,7 +2,7 @@ import Case from "case";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 
-import FullScreenLoader from "../components/Loader";
+import Loader from "../components/Loader";
 import Error from "../components/Error";
 import CountryCard from "../components/CountryCard";
 import useApiRequest from "../app/hooks/useApiRequest";
@@ -15,8 +15,8 @@ const AllCountries: NextPage<NextPage> = () => {
   const { data, error, isLoading } = useApiRequest(url);
 
   return (
-    (isLoading && <FullScreenLoader />) ||
-    (error && <Error error={error} />) || (
+    (isLoading && <Loader />) ||
+    (error && !data.length && <Error error={error} />) || (
       <Styled.CountriesWrap>
         {data?.map((country: any) => (
           <CountryCard

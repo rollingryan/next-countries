@@ -1,10 +1,11 @@
-import { Skeleton, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import Case from "case";
 import { useRouter } from "next/router";
-import useApiRequest from "../../app/hooks/useApiRequest";
-import CountryCard from "../CountryCard";
 
 import * as Styled from "./styles";
+import useApiRequest from "../../app/hooks/useApiRequest";
+import CountryCard from "../CountryCard";
+import Loader from "../Loader";
 
 interface Props {
   borders: string[];
@@ -17,20 +18,19 @@ const BorderCountries: React.FC<Props> = ({ borders }) => {
   const containerLength = borders.length * 110;
 
   return (
-    (isLoading && <Skeleton height="5rem" />) || (
-      <>
-        <Styled.Heading variant="h4" gutterBottom>
-          <span className="heading--first">Border</span>
-          <span className="heading--second">Countries</span>
-        </Styled.Heading>
+    <>
+      <Styled.Heading variant="h4" gutterBottom>
+        <span className="heading--first">Border</span>
+        <span className="heading--second">Countries</span>
+      </Styled.Heading>
 
-        <Styled.BordersWrap elevation={(error && !data.length && 1) || 0}>
-          {error && !data.length && (
+      <Styled.BordersWrap elevation={(error && !data.length && 1) || 0}>
+        {(isLoading && <Loader contained />) ||
+          (error && !data.length && (
             <Typography sx={{ padding: "1rem" }} variant="h6">
               This country is an island &#127965;&#65039;
             </Typography>
-          )}
-          {data.length > 0 && (
+          )) || (
             <Styled.ScrollWrap>
               <Styled.InnerWrap containerLength={containerLength}>
                 {data?.map((country: any) => (
@@ -49,9 +49,8 @@ const BorderCountries: React.FC<Props> = ({ borders }) => {
               </Styled.InnerWrap>
             </Styled.ScrollWrap>
           )}
-        </Styled.BordersWrap>
-      </>
-    )
+      </Styled.BordersWrap>
+    </>
   );
 };
 

@@ -4,7 +4,7 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { Typography } from "@mui/material";
 
-import FullScreenLoader from "../components/Loader";
+import Loader from "../components/Loader";
 import Error from "../components/Error";
 import useApiRequest from "../app/hooks/useApiRequest";
 import * as Styled from "../pageStyles/countryStyles";
@@ -47,8 +47,8 @@ const Country: NextPage = () => {
   const grey = theme.palette.text.disabled;
 
   return (
-    (isLoading && <FullScreenLoader />) ||
-    (error && !data && <Error error={error} />) ||
+    (isLoading && <Loader />) ||
+    (error && !data.length && <Error error={error} />) ||
     (data && !isLoading && (
       <>
         <Styled.CountryWrapper>
