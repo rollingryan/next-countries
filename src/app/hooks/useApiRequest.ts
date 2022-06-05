@@ -11,13 +11,8 @@ const useApiRequest = (url: string) => {
       axios
         .get(url)
         .then((response) => {
-          if (response.status === 200) {
-            setIsLoading(false);
-            setData(response.data);
-          } else {
-            setIsLoading(false);
-            setError("Oops! Something went wrong.");
-          }
+          setIsLoading(false);
+          setData(response.data);
         })
         .catch((error) => {
           setIsLoading(false);
