@@ -5,18 +5,17 @@ import { useRouter } from "next/router";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 import CountryCard from "../components/CountryCard";
-import useApiRequest from "../app/hooks/useApiRequest";
 import * as Styled from "../pageStyles/countriesStyles";
+import { useGetCountriesQuery } from "../app/store/api/apiSlice";
 
 const AllCountries: NextPage<NextPage> = () => {
   const router = useRouter();
-  const url =
-    "https://restcountries.com/v2/all?fields=name,flag,population,capital,alpha2Code";
-  const { data, error, isLoading } = useApiRequest(url);
+  // @ts-ignore
+  const { data, isLoading, isError, error } = useGetCountriesQuery();
 
   return (
     (isLoading && <Loader />) ||
-    (error && !data.length && <Error error={error} />) || (
+    (isError && <Error error={error.toString()} />) || (
       <Styled.CountriesWrap>
         {data?.map((country: any) => (
           <CountryCard
