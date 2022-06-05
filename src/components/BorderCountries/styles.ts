@@ -93,7 +93,7 @@ export const InnerWrap = styled.div<InnerWrapProps>`
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-evenly;
-  width: ${(props) => props.containerLength}%;
+  width: ${(props) => props.containerLength / 1.2}%;
 
   @media screen and (min-width: ${breakpoints.sm}px) {
     width: ${(props) => props.containerLength / 1.5}%;
@@ -109,7 +109,7 @@ export const InnerWrap = styled.div<InnerWrapProps>`
 
   .border-country {
     display: inline-block;
-    margin-right: 2rem;
+    margin-right: 1rem;
     width: 100%;
 
     &:last-of-type {

@@ -9,6 +9,7 @@ import {
   CardMediaProps,
   CardProps,
 } from "@mui/material";
+import { breakpoints } from "../../app/theme";
 
 export const Card = styled(MuiCard)<CardProps>`
   border-radius: 0;
@@ -47,4 +48,12 @@ export const CardContent = styled(MuiCardContent)<CardContentProps>`
   flex-flow: column nowrap;
   width: 65%;
   padding-left: 0.75rem;
+
+  .MuiTypography-h5 {
+    font-size: 1.25rem;
+
+    @media screen and (min-width: ${breakpoints.sm}px) {
+      font-size: 1.5rem;
+    }
+  }
 `;

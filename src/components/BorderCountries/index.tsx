@@ -15,7 +15,7 @@ const BorderCountries: React.FC<Props> = ({ borders }) => {
   const router = useRouter();
   // @ts-ignore
   const { data, isLoading, isError } = useGetBorderCountriesQuery(borders);
-  const containerLength = borders.length * 110;
+  const containerLength = borders.length * 120;
 
   return (
     <>
