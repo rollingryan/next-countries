@@ -40,6 +40,6 @@ describe("CountryCard", () => {
 
     fireEvent.click(Button);
 
-    expect(mockOnClick).toHaveBeenCalled();
+    expect(mockOnClick).not.toHaveBeenCalled();
   });
 });
