@@ -28,7 +28,7 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
             <CssBaseline />
             <Styled.Layout>
               <Styled.Header>
-                <Styled.Logo variant="h1" gutterBottom>
+                <Styled.Logo variant="h1" gutterBottom data-cy="logo">
                   <span className="logo--first">Next</span>
                   <span className="logo--second">Countries</span>
                 </Styled.Logo>

@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest a --no-cache",
-    "test:watch": "jest a --watch --no-cache"
+    "test:watch": "jest a --watch --no-cache",
+    "test:cypress:open": "npx cypress open",
+    "test:cypress:run": "npx cypress run"
   },
   "dependencies": {
     "@emotion/react": "11.9.0",

@@ -27,7 +27,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ### These other useful commands also available:
 
 ```bash
+# Unit tests
 npm run test
 npm run test:watch
-npm run cypress:open # coming soon
+# e2e tests
+npm run test:cypress:open
+npm run test:cypress:run
 ```
