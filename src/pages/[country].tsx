@@ -15,15 +15,14 @@ const Country: NextPage = () => {
   const countryCode = router.query.country;
   // @ts-ignore
   const { data, isLoading, isError, error } = useGetCountryQuery(countryCode);
-
   const grey = theme.palette.text.disabled;
 
   return (
     (isLoading && <Loader />) ||
-    (isError && <Error error={error.toString()} />) ||
+    (isError && <Error error={error} />) ||
     (data && !isLoading && (
       <>
-        <Styled.CountryWrapper>
+        <Styled.CountryWrapper data-cy="country-detail">
           <Styled.NextImage>
             <Image
               src={data.flag || "https://via.placeholder.com/400x200"}
@@ -31,34 +30,42 @@ const Country: NextPage = () => {
               layout="fill"
               objectFit="cover"
               priority
+              data-cy="country-detail__flag"
             />
           </Styled.NextImage>
 
-          <Styled.CountryInfo elevation={0}>
-            <Typography variant="h4" gutterBottom>
+          <Styled.CountryInfo elevation={0} data-cy="country-detail__info">
+            <Typography
+              variant="h4"
+              gutterBottom
+              data-cy="country-detail__name"
+            >
               {data.name}
             </Typography>
-            <Typography>
+            <Typography data-cy="country-detail__capital">
               <span style={{ color: `${grey}` }}>Capital: </span>
               {data.capital}
             </Typography>
-            <Typography>
+            <Typography data-cy="country-detail__population">
               <span style={{ color: `${grey}` }}>Population: </span>
               {data.population?.toLocaleString("en-US")}
             </Typography>
 
-            <Typography>
+            <Typography data-cy="country-detail__currencies">
               <span style={{ color: `${grey}` }}>Currencies: </span>
               {data.currencies?.map((currency: any) => currency.name)}
             </Typography>
 
-            <Typography>
+            <Typography data-cy="country-detail__languages">
               <span style={{ color: `${grey}` }}>Languages: </span>
               {data.languages?.map((language: any) => language.name)}
             </Typography>
           </Styled.CountryInfo>
         </Styled.CountryWrapper>
-        <BorderCountries borders={data.borders || []} />
+        <BorderCountries
+          borders={data.borders || []}
+          data-cy="border-countries"
+        />
       </>
     ))
   );

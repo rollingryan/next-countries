@@ -24,27 +24,42 @@ const CountryCard: React.FC<CountryCardProps> = ({
   const grey = theme.palette.text.disabled;
 
   return (
-    <Styled.Card className={className} data-testid="country-card">
+    <Styled.Card
+      className={className}
+      data-testid="country-card"
+      data-cy="country-card"
+    >
       <Styled.CardActionArea
         onClick={onClick}
         data-testid="country-card__button"
+        data-cy="country-card__button"
       >
-        <Styled.CardMedia image={flag} data-testid="country-card__flag" />
+        <Styled.CardMedia
+          image={flag}
+          data-testid="country-card__flag"
+          data-cy="country-card__flag"
+        />
         <Styled.CardContent>
           <Typography
             variant="h5"
             gutterBottom
             data-testid="country-card__name"
+            data-cy="country-card__name"
           >
             {trimString(name, 14)}
           </Typography>
-          <Typography variant="subtitle2" data-testid="country-card__capital">
+          <Typography
+            variant="subtitle2"
+            data-testid="country-card__capital"
+            data-cy="country-card__capital"
+          >
             <span style={{ color: `${grey}` }}>Capital: </span>
             {trimString(capital, 13)}
           </Typography>
           <Typography
             variant="subtitle2"
             data-testid="country-card__population"
+            data-cy="country-card__population"
           >
             <span style={{ color: `${grey}` }}>Population: </span>
             {population?.toLocaleString("en-US")}
