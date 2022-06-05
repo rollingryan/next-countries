@@ -3,9 +3,9 @@ import Case from "case";
 import { useRouter } from "next/router";
 
 import * as Styled from "./styles";
-import useApiRequest from "../../app/hooks/useApiRequest";
 import CountryCard from "../CountryCard";
 import Loader from "../Loader";
+import { useGetBorderCountriesQuery } from "../../app/store/api/apiSlice";
 
 interface Props {
   borders: string[];
@@ -13,8 +13,8 @@ interface Props {
 
 const BorderCountries: React.FC<Props> = ({ borders }) => {
   const router = useRouter();
-  const url = `https://restcountries.com/v2/alpha?codes=${borders?.join()}&fields=name,flag,population,capital,alpha2Code`;
-  const { data, error, isLoading } = useApiRequest(url);
+  // @ts-ignore
+  const { data, isLoading, isError } = useGetBorderCountriesQuery(borders);
   const containerLength = borders.length * 110;
 
   return (
@@ -24,9 +24,9 @@ const BorderCountries: React.FC<Props> = ({ borders }) => {
         <span className="heading--second">Countries</span>
       </Styled.Heading>
 
-      <Styled.BordersWrap elevation={(error && !data.length && 1) || 0}>
+      <Styled.BordersWrap elevation={(isError && 1) || 0}>
         {(isLoading && <Loader contained />) ||
-          (error && !data.length && (
+          (isError && (
             <Typography sx={{ padding: "1rem" }} variant="h6">
               This country is an island &#127965;&#65039;
             </Typography>

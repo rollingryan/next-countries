@@ -99,8 +99,12 @@ export const InnerWrap = styled.div<InnerWrapProps>`
     width: ${(props) => props.containerLength / 1.5}%;
   }
 
-  @media screen and (min-width: ${breakpoints.lg}px) {
+  @media screen and (min-width: ${breakpoints.md}px) {
     width: ${(props) => props.containerLength / 2.5}%;
+  }
+
+  @media screen and (min-width: ${breakpoints.lg}px) {
+    width: ${(props) => props.containerLength / 3.5}%;
   }
 
   .border-country {
