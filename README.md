@@ -23,3 +23,10 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### These other useful commands also available:
+
+```bash
+npm run test
+npm run test:watch
+```

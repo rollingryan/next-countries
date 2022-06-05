@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest a --no-cache",
-    "test:watch": "jest a --watch --no-cache",
-    "test:updateSnapshots": "jest a -u --no-cache"
+    "test:watch": "jest a --watch --no-cache"
   },
   "dependencies": {
     "@emotion/react": "11.9.0",
