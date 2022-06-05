@@ -16,7 +16,8 @@ const AllCountries: NextPage<NextPage> = () => {
 
   return (
     (isLoading && <Loader />) ||
-    (isError && <Error error={error.toString()} />) || (
+    // @ts-ignore
+    (isError && <Error error={error} />) || (
       <Styled.CountriesWrap>
         {data?.map((country: any) => (
           <CountryCard
