@@ -18,7 +18,7 @@ const AllCountries: NextPage<NextPage> = () => {
     (isLoading && <Loader />) ||
     // @ts-ignore
     (isError && <Error error={error} />) || (
-      <Styled.CountriesWrap>
+      <Styled.CountriesWrap data-cy="countries-wrap">
         {data?.map((country: any) => (
           <CountryCard
             key={country.alpha2Code}

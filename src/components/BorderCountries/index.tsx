@@ -19,20 +19,34 @@ const BorderCountries: React.FC<Props> = ({ borders }) => {
 
   return (
     <>
-      <Styled.Heading variant="h4" gutterBottom>
+      <Styled.Heading
+        variant="h4"
+        gutterBottom
+        data-cy="border-countries__heading"
+      >
         <span className="heading--first">Border</span>
         <span className="heading--second">Countries</span>
       </Styled.Heading>
 
-      <Styled.BordersWrap elevation={(isError && 1) || 0}>
+      <Styled.BordersWrap
+        elevation={(isError && 1) || 0}
+        data-cy="border-countries__wrap"
+      >
         {(isLoading && <Loader contained />) ||
           (isError && (
-            <Typography sx={{ padding: "1rem" }} variant="h6">
+            <Typography
+              sx={{ padding: "1rem" }}
+              variant="h6"
+              data-cy="border-countries__island"
+            >
               This country is an island &#127965;&#65039;
             </Typography>
           )) || (
             <Styled.ScrollWrap>
-              <Styled.InnerWrap containerLength={containerLength}>
+              <Styled.InnerWrap
+                containerLength={containerLength}
+                data-cy="border-countries__wrap--inner"
+              >
                 {data?.map((country: any) => (
                   <CountryCard
                     className="border-country"
