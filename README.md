@@ -40,11 +40,11 @@ npm run test:cypress:run
 
 ## Improvement notes
 
-- Unit/Integration tests could still be improved drastically by mocking the API calls and provider.
-- Cypress testing could be cleaned up to make the files more readable.
-- Adding cypress to CI would be a good idea.
-- Lazy loading the countries list in batches.
-- "Skeleton" loading of the cards and details page would be cool.
+- Unit/Integration tests could still be improved drastically by mocking the API calls and provider
+- Cypress testing could be cleaned up to make the files more readable
+- Adding cypress to CI would be a good idea
+- Lazy loading the countries list in batches
+- "Skeleton" loading of the cards and details page would be cool
 - SEO implementation was hardly considered. There's loads of room for improvement including:
   - Adding head meta
   - Search friendly URLs
