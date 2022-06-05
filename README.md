@@ -2,11 +2,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Stack
 
-- Next.js is built on top of [Next.js](https://nextjs.org/)
-- Typescript
+- [Next.js](https://nextjs.org/)
+- [React 18](https://reactjs.org/) with typescript
 - [Material UI](https://mui.com/material-ui/getting-started/installation/) for the components library
 - [Emotion](https://emotion.sh/docs/styled) for the styling (what styled-components uses under the hood)
-- [Axios](https://axios-http.com/) for the API calls
+- [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) for state management and API calls
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) - for unit / integration testing
+- [Cypress](https://www.cypress.io/) - for e2e testing
 
 ## Getting Started
 
