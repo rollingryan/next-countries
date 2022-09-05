@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Paper, PaperProps } from "@mui/material";
 
-import theme, { breakpoints } from "../app/theme";
+import { breakpoints } from "../app/theme";
 
 export const CountryWrapper = styled.div`
   display: flex;
