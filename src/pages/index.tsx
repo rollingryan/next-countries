@@ -1,4 +1,3 @@
-import Case from "case";
 import { memo } from "react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
@@ -26,7 +25,7 @@ const AllCountries: NextPage<NextPage> = () => {
             population={country.population}
             flag={country.flag}
             capital={country.capital}
-            onClick={() => router.push(`/${Case.lower(country.alpha2Code)}`)}
+            onClick={() => router.push(`/${country.alpha2Code.toLowerCase()}`)}
           />
         ))}
       </Styled.CountriesWrap>

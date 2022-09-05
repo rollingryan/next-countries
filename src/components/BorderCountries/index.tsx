@@ -1,5 +1,4 @@
 import { Typography } from "@mui/material";
-import Case from "case";
 import { useRouter } from "next/router";
 
 import * as Styled from "./styles";
@@ -56,7 +55,7 @@ const BorderCountries: React.FC<Props> = ({ borders }) => {
                     population={country.population}
                     capital={country.capital}
                     onClick={() =>
-                      router.push(`/${Case.lower(country.alpha2Code)}`)
+                      router.push(`/${country.alpha2Code.toLowerCase()}`)
                     }
                   />
                 ))}
