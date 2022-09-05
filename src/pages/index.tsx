@@ -10,12 +10,10 @@ import { useGetCountriesQuery } from "../app/store/api/apiSlice";
 
 const AllCountries: NextPage<NextPage> = () => {
   const router = useRouter();
-  // @ts-ignore
-  const { data, isLoading, isError, error } = useGetCountriesQuery();
+  const { data, isLoading, isError, error } = useGetCountriesQuery("");
 
   return (
     (isLoading && <Loader />) ||
-    // @ts-ignore
     (isError && <Error error={error} />) || (
       <Styled.CountriesWrap data-cy="countries-wrap">
         {data?.map((country: any) => (

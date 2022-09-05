@@ -12,7 +12,6 @@ interface Props {
 
 const BorderCountries: React.FC<Props> = ({ borders }) => {
   const router = useRouter();
-  // @ts-ignore
   const { data, isLoading, isError } = useGetBorderCountriesQuery(borders);
   const containerLength = borders.length * 120;
 
