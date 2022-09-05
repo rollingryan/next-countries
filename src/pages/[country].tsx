@@ -13,7 +13,6 @@ import { useGetCountryQuery } from "../app/store/api/apiSlice";
 const Country: NextPage = () => {
   const router = useRouter();
   const countryCode = router.query.country;
-  // @ts-ignore
   const { data, isLoading, isError, error } = useGetCountryQuery(countryCode);
   const grey = theme.palette.text.disabled;
 
