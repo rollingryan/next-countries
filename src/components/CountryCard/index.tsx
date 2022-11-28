@@ -21,7 +21,7 @@ const CountryCard: React.FC<CountryCardProps> = ({
   onClick,
   className = "",
 }) => {
-  const grey = theme.palette.text.disabled;
+  const grey = theme.palette.text.secondary;
 
   return (
     <Styled.Card
@@ -40,24 +40,23 @@ const CountryCard: React.FC<CountryCardProps> = ({
           data-cy="country-card__flag"
         />
         <Styled.CardContent>
-          <Typography
-            variant="h5"
+          <Styled.CountryName
+            variant="h3"
             gutterBottom
             data-testid="country-card__name"
             data-cy="country-card__name"
           >
             {trimString(name, 13)}
-          </Typography>
-          <Typography
-            variant="subtitle2"
+          </Styled.CountryName>
+          <Styled.CountryCapital
+            variant="h4"
             data-testid="country-card__capital"
             data-cy="country-card__capital"
           >
             <span style={{ color: `${grey}` }}>Capital: </span>
             {trimString(capital, 13)}
-          </Typography>
+          </Styled.CountryCapital>
           <Typography
-            variant="subtitle2"
             data-testid="country-card__population"
             data-cy="country-card__population"
           >

@@ -4,6 +4,8 @@ import {
   CardMedia as MuiCardMedia,
   CardActionArea as MuiCardActionArea,
   CardContent as MuiCardContent,
+  Typography as MuiTypography,
+  TypographyProps,
   CardContentProps,
   CardActionAreaProps,
   CardMediaProps,
@@ -56,4 +58,12 @@ export const CardContent = styled(MuiCardContent)<CardContentProps>`
       font-size: 1.5rem;
     }
   }
+`;
+
+export const CountryName = styled(MuiTypography)<TypographyProps>`
+  font-size: 1.25rem;
+`;
+
+export const CountryCapital = styled(MuiTypography)<TypographyProps>`
+  font-size: 1rem;
 `;
