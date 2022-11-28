@@ -98,3 +98,21 @@ export const Logo = styled(Typography)<TypographyProps>`
     }
   }
 `;
+
+export const Subtitle = styled(Typography)<TypographyProps>`
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.25rem;
+
+  @media screen and (min-width: ${breakpoints.sm}px) {
+    font-size: 1.5rem;
+  }
+
+  @media screen and (min-width: ${breakpoints.md}px) {
+    font-size: 1.75rem;
+  }
+
+  @media screen and (min-width: ${breakpoints.lg}px) {
+    font-size: 2rem;
+  }
+`;

@@ -14,12 +14,12 @@ import * as Styled from "../pageStyles/appStyles";
 const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
   const router = useRouter();
   const { pathname } = router;
-  const showBackButton = pathname !== "/";
+  const isHome = pathname === "/";
 
   return (
     <>
       <Head>
-        <title>Next Countries</title>
+        <title>{isHome && "Home"} | Next Countries</title>
       </Head>
 
       <Provider store={store}>
@@ -28,11 +28,14 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
             <CssBaseline />
             <Styled.Layout>
               <Styled.Header>
-                <Styled.Logo variant="h1" gutterBottom data-cy="logo">
+                <Styled.Logo variant="h1" data-cy="logo">
                   <span className="logo--first">Next</span>
                   <span className="logo--second">Countries</span>
                 </Styled.Logo>
-                {showBackButton && (
+                <Styled.Subtitle variant="h2" gutterBottom>
+                  All your country needs in one place
+                </Styled.Subtitle>
+                {!isHome && (
                   <Button
                     onClick={() => router.back()}
                     startIcon={<ArrowBackIcon />}
