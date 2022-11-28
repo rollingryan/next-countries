@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Head from "next/head";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { Typography } from "@mui/material";
@@ -21,6 +22,9 @@ const Country: NextPage = () => {
     (isError && <Error error={error} />) ||
     (data && !isLoading && (
       <>
+        <Head>
+          <title>{data.name} | Next Countries</title>
+        </Head>
         <Styled.CountryWrapper data-cy="country-detail">
           <Styled.NextImage>
             <Image
